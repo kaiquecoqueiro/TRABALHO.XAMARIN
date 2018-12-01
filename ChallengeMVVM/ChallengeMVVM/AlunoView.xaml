@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChallengeMVVM.AlunoView"
+             xmlns:vm="clr-namespace:ChallengeMVVM.ViewModels"
+              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid">
+    <ContentPage.BindingContext>
+        <vm:AlunoViewModel></vm:AlunoViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Path=Alunos}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5,0,5,0">
+                                <Label Text="{Binding Nome}" Font="14" />
+                                <Label Text="{Binding Email}" Font="10" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Novo Aluno" Command="{Binding AbrirTelaNovoAlunoCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

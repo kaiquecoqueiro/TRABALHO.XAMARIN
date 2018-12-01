@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChallengeMVVM.NovoAlunoView"
+             xmlns:vm="clr-namespace:ChallengeMVVM.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:AlunoViewModel></vm:AlunoViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding CurrentAluno.Id}"></Label>
+            <Entry Text="{Binding CurrentAluno.Nome, Mode=TwoWay}" Placeholder="Nome do Aluno"></Entry>
+            <Entry Text="{Binding CurrentAluno.Email, Mode=TwoWay}" Placeholder="Email do Aluno"></Entry>
+            <Entry Text="{Binding CurrentAluno.RM, Mode=TwoWay}" Placeholder="RM do Aluno"></Entry>
+            <Button Text="Salvar Alterações" Command="{Binding SalvarAlunoCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
